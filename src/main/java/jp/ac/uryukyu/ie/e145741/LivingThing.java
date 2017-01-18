@@ -1,5 +1,5 @@
 package jp.ac.uryukyu.ie.e145741;
-
+import java.util.Random;
 /**
  * Created by e145741 on 2016/11/28.
  */
@@ -9,7 +9,7 @@ public class LivingThing {
     private int hitPoint;
     private int attack;
     private boolean dead;
-
+    private Random ran = new Random();
 
     public LivingThing(String name, int maximumHP, int attack){
         this.name = name;
@@ -44,6 +44,15 @@ public class LivingThing {
         }
     }
 
+    public boolean randAttack(int odds){
+        int rand;
+        rand = ran.nextInt(100);
+        if(rand < odds)
+            return true;
+
+        return false;
+    }
+
 
     public boolean getIsDead() {
         return this.dead = dead;
@@ -59,6 +68,14 @@ public class LivingThing {
 
     public void sethitPoint(){
         this.hitPoint = hitPoint;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public int getAttack() {
+        return attack;
     }
 
 
